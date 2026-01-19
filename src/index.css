@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap");
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+global colors one for header and one for page
+
+*/
+:root {
+  --bg-page: #101018;
+  --bg-header: #0b0b10;
+}
+
+body {
+  background-color: var(--bg-page);
+  font-family: "Roboto", system-ui, sans-serif;
+}
+
+.header {
+  padding: 0 8rem;
+  background-color: var(--bg-header);
+}
+
+.search-container input,
+button {
+  padding: 0.1em 0.5em;
+}
+
+.search-container input {
+  background-color: white;
+  color: black;
+}
+
+.movie-section {
+  height: auto;
+
+  margin: 0 6rem;
+  display: grid;
+  grid-template-columns: repeat(4, 290px);
+  gap: 20px;
+}

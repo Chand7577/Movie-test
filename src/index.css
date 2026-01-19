@@ -35,11 +35,11 @@ button {
   color: black;
 }
 
-.movie-section {
+/* .movie-section {
   height: auto;
 
   margin: 0 6rem;
   display: grid;
   grid-template-columns: repeat(4, 290px);
   gap: 20px;
-}
+} */

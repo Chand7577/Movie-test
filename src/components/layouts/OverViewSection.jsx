@@ -5,7 +5,7 @@ const OverViewSection = ({ movies }) => {
   return (
     <div className="overview-section-container">
       <OverViewContainer movieDetail={movies.movieDetail} />
-      <CastContainer movieCast={movies.movieCast} />
+      <CastContainer movieCast={movies.movieCast.cast} />
     </div>
   );
 };

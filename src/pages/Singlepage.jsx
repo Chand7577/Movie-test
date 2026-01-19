@@ -19,6 +19,7 @@ function Singlepage() {
 
   const { movies: movieDetail } = useMoviesFetch(MOVIE_DETAIL_URL);
   const { movies: movieCast } = useMoviesFetch(CAST_DETAIL_URL);
+
   const movies = {
     movieDetail,
     movieCast,

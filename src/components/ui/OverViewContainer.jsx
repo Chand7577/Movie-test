@@ -2,7 +2,7 @@ import React from "react";
 
 const OverViewContainer = ({ movieDetail }) => {
   return (
-    <div className="overview-container text-white bg-gradient-to-b from-gray-900 via-gray-950 to-black min-h-screen pb-12">
+    <div className="overview-container text-white bg-gradient-to-b from-gray-900 via-gray-950 to-black  pb-12">
       <div className="desc-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         {/* Upper section - poster + info */}
         <div className="desc-upper flex flex-col md:flex-row gap-6 md:gap-10 mb-10">
@@ -35,7 +35,7 @@ const OverViewContainer = ({ movieDetail }) => {
         </div>
 
         {/* Overview section */}
-        <div className="desc-lower">
+        <div className="desc-lower ">
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-100">
             Overview
           </h2>

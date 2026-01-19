@@ -24,6 +24,7 @@ body {
 .header {
   padding: 0 8rem;
   background-color: var(--bg-header);
+  border: 1px solid rgb(109, 92, 92);
 }
 
 .search-container input,

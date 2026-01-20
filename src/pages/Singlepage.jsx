@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/ui/Header";
 import OverViewSection from "../components/layouts/OverViewSection";
 import { useParams } from "react-router-dom";
 import useMoviesFetch from "../customHooks/useMoviesFetch";
-import { API_KEY, getRandomPageNo } from "../utils/helper";
+import { API_KEY } from "../utils/helper";
+
 function Singlepage() {
   const { id } = useParams();
+  const [movieDetailUrl, setMovieDetailUrl] = useState(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`,
+  );
 
-  const MOVIE_DETAIL_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
+  const [castDetailUrl, setCastDetailUrl] = useState(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`,
+  );
 
-  const CAST_DETAIL_URL = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`;
-
-  const { movies: movieDetail } = useMoviesFetch(MOVIE_DETAIL_URL);
-  const { movies: movieCast } = useMoviesFetch(CAST_DETAIL_URL);
+  const { movies: movieDetail } = useMoviesFetch(movieDetailUrl);
+  const { movies: movieCast } = useMoviesFetch(castDetailUrl);
 
   const movies = {
     movieDetail,

@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import { Link } from "react-router-dom";
-const Header = ({ movie, setMovie, handleBtnClick }) => {
+const Header = () => {
   return (
     <div className="header  h-19  text-white flex justify-between items-center w-screen">
       <div className="icon-container">
@@ -18,11 +18,7 @@ const Header = ({ movie, setMovie, handleBtnClick }) => {
           <Link to="/upcom">Upcoming</Link>
         </li>
         <li>
-          <Search
-            movie={movie}
-            setMovie={setMovie}
-            handleBtnClick={handleBtnClick}
-          />
+          <Search />
         </li>
       </ul>
     </div>

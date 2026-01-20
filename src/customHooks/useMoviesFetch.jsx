@@ -16,7 +16,7 @@ const useMoviesFetch = (API_URL) => {
   // fetch movie function
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [API_URL]);
 
   return {
     movies,

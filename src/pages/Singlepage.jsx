@@ -3,15 +3,9 @@ import Header from "../components/ui/Header";
 import OverViewSection from "../components/layouts/OverViewSection";
 import { useParams } from "react-router-dom";
 import useMoviesFetch from "../customHooks/useMoviesFetch";
-
+import { API_KEY, getRandomPageNo } from "../utils/helper";
 function Singlepage() {
-  const API_KEY = "d320b1dd0002eb57d0ba9fc61ed1d4c2";
   const { id } = useParams();
-
-  // fun to generate random page
-  const getRandomPageNo = () => {
-    return Math.floor(Math.random() * 58 + 1);
-  };
 
   const MOVIE_DETAIL_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
 

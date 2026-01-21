@@ -3,13 +3,22 @@ import Header from "../components/ui/Header";
 import useMoviesFetch from "../hooks/useMoviesFetch";
 import MovieSection from "../components/layouts/MovieSection";
 import { API_KEY, getRandomPageNo } from "../utils/helper";
+import PaginationBtn from "../components/ui/PaginationBtn";
 function Topratedpage() {
   const [apiUrl, setApiUrl] = useState(
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${getRandomPageNo()}`,
   );
 
-  const { movies, movie, moviesList, handleClick, setMovie } =
+  const { movies, movie, moviesList, handleClick, setMovie, btns } =
     useMoviesFetch(apiUrl);
+
+  // fun for btn click for pagination
+
+  const handleClickMe = (value) => {
+    setApiUrl(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${value}`,
+    );
+  };
 
   return (
     <>
@@ -22,6 +31,33 @@ function Topratedpage() {
       ) : (
         <MovieSection movies={moviesList} />
       )}
+      <div
+        className="
+      flex
+      flex-wrap
+      justify-center
+      items-center
+      gap-2
+      mt-6
+      p-4
+      
+      rounded-xl
+      bg-gray-900
+      border border-gray-800
+      shadow-lg
+    "
+      >
+        {" "}
+        {btns.map((btn, index) => {
+          return (
+            <PaginationBtn
+              key={index}
+              handleClickMe={handleClickMe}
+              value={btn}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }

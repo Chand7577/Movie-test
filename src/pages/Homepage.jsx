@@ -1,33 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/ui/Header";
 import { API_KEY, getRandomPageNo } from "../utils/helper";
-import useMoviesFetch from "../customHooks/useMoviesFetch";
+import useMoviesFetch from "../hooks/useMoviesFetch";
 
 import MovieSection from "../components/layouts/MovieSection";
 function Homepage() {
-  const [moviesList, setMoviesList] = useState([]);
-  const [movie, setMovie] = useState("");
   const [apiUrl, setApiUrl] = useState(
     `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${getRandomPageNo()}`,
   );
   // initial render
-  const { movies } = useMoviesFetch(apiUrl);
-
-  const handleClick = () => {
-    setApiUrl(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movie.toLowerCase()}&page=${1}`,
-    );
-
-    setMovie(" ");
-
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => (data) => setMoviesList(data.results));
-  };
+  const { movies, movie, moviesList, handleClick, setMovie } =
+    useMoviesFetch(apiUrl);
 
   return (
     <div>
       <Header handleClick={handleClick} movie={movie} setMovie={setMovie} />
+      <h1 className="text-white p-2  text-3xl ml-6 relative top-4">
+        Popular Movies
+      </h1>
       {moviesList.length == 0 ? (
         <MovieSection movies={movies} />
       ) : (

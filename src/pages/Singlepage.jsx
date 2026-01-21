@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Header from "../components/ui/Header";
 import OverViewSection from "../components/layouts/OverViewSection";
 import { useParams } from "react-router-dom";
-import useMoviesFetch from "../customHooks/useMoviesFetch";
+import useMoviesFetch from "../hooks/useMoviesFetch";
 import { API_KEY } from "../utils/helper";
+import MovieSection from "../components/layouts/MovieSection";
 
 function Singlepage() {
   const { id } = useParams();
@@ -15,7 +16,14 @@ function Singlepage() {
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`,
   );
 
-  const { movies: movieDetail } = useMoviesFetch(movieDetailUrl);
+  const {
+    movies: movieDetail,
+    movie,
+    moviesList,
+    handleClick,
+    setMovie,
+  } = useMoviesFetch(movieDetailUrl);
+
   const { movies: movieCast } = useMoviesFetch(castDetailUrl);
 
   const movies = {
@@ -25,9 +33,13 @@ function Singlepage() {
 
   return (
     <>
-      <Header />
+      <Header handleClick={handleClick} movie={movie} setMovie={setMovie} />
       <h1>single pagge</h1>
-      <OverViewSection movies={movies} />
+      {moviesList.length == 0 ? (
+        <OverViewSection movies={movies} />
+      ) : (
+        <MovieSection movies={moviesList} />
+      )}
     </>
   );
 }

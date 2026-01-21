@@ -1,6 +1,6 @@
 import React from "react";
 
-import useMoviesFetch from "../../customHooks/useMoviesFetch";
+import useMoviesFetch from "../../hooks/useMoviesFetch";
 
 const Search = ({ handleClick, movie, setMovie }) => {
   return (

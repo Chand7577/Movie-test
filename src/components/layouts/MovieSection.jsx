@@ -27,7 +27,7 @@ const MovieSection = ({ movies }) => {
       {/* Optional: show this when no movies */}
       {movies.length === 0 && (
         <div className="text-center py-16 text-gray-400">
-          <p className="text-lg">No movies found</p>
+          <p className="text-5xl">Loading movies...</p>
         </div>
       )}
     </div>

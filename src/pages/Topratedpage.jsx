@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Header from "../components/ui/Header";
 import useMoviesFetch from "../hooks/useMoviesFetch";
 import MovieSection from "../components/layouts/MovieSection";
-import { API_KEY, getRandomPageNo } from "../utils/helper";
+import { getRandomPageNo } from "../utils/helper";
 import PaginationBtn from "../components/ui/PaginationBtn";
 function Topratedpage() {
+  const API_KEY = import.meta.env.VITE_META_API_KEY;
   const [apiUrl, setApiUrl] = useState(
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${getRandomPageNo()}`,
   );

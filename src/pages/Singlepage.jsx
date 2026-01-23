@@ -3,10 +3,11 @@ import Header from "../components/ui/Header";
 import OverViewSection from "../components/layouts/OverViewSection";
 import { useParams } from "react-router-dom";
 import useMoviesFetch from "../hooks/useMoviesFetch";
-import { API_KEY } from "../utils/helper";
+
 import MovieSection from "../components/layouts/MovieSection";
 
 function Singlepage() {
+  const API_KEY = import.meta.env.VITE_META_API_KEY;
   const { id } = useParams();
   const [movieDetailUrl, setMovieDetailUrl] = useState(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`,

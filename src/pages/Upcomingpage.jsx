@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Header from "../components/ui/Header";
 import MovieSection from "../components/layouts/MovieSection";
 import useMoviesFetch from "../hooks/useMoviesFetch";
-import { API_KEY } from "../utils/helper";
+
 import PaginationBtn from "../components/ui/PaginationBtn";
 export default function Upcomingpage() {
+  const API_KEY = import.meta.env.VITE_META_API_KEY;
   const [apiUrl, setApiUrl] = useState(
     `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${1}`,
   );

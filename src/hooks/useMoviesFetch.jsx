@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { API_KEY } from "../utils/helper";
+
 const useMoviesFetch = (API_URL) => {
+  const API_KEY = import.meta.env.VITE_META_API_KEY;
+
   const [movies, setMovies] = useState([]);
 
   const [moviesList, setMoviesList] = useState([]); // for list of movies that has the searched keyword

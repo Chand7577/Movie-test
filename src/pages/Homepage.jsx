@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/ui/Header";
-import { API_KEY, getRandomPageNo } from "../utils/helper";
+import { getRandomPageNo } from "../utils/helper";
 import useMoviesFetch from "../hooks/useMoviesFetch";
 import PaginationBtn from "../components/ui/PaginationBtn";
 
 import MovieSection from "../components/layouts/MovieSection";
 function Homepage() {
+  const API_KEY = import.meta.env.VITE_META_API_KEY;
   const [apiUrl, setApiUrl] = useState(
     `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${getRandomPageNo()}`,
   );
@@ -32,8 +33,10 @@ function Homepage() {
       ) : (
         <MovieSection movies={moviesList} />
       )}
-      // bug in this line that i still need to solve or probably in the logic
-      {moviesList.length > 0 && (
+      {
+        "// bug in this line that i still need to solve or probably in the logic"
+      }
+      {moviesList.length == 0 && (
         <div
           className="
     flex flex-wrap justify-center items-center
